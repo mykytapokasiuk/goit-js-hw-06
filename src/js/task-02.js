@@ -1,7 +1,7 @@
 const ingredients = ["Potatoes", "Mushrooms", "Garlic", "Tomatos", "Herbs", "Condiments"];
 /**
  * Creates new markup
- * @param {string} array Array of string, numbers, etc.
+ * @param {array} array Array of string, numbers, etc.
  * @param {string} tag The element tag
  * @param {string} className The element class name
  * @param {string} target Identifier, element class for the new markup
