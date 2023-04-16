@@ -13,7 +13,7 @@ const textOutput = {
      * @param {event} event
      */
     returnOutputText(event) {
-        if (event.target.value === "") {
+        if (event.target.value.trim() === "") {
             this.nameOutput.textContent = "Anonymous";
         }
     },

@@ -5,7 +5,7 @@ const ingredients = ["Potatoes", "Mushrooms", "Garlic", "Tomatos", "Herbs", "Con
  * @param {string} tag The element tag
  * @param {string} className The element class name
  * @param {string} target Identifier, element class for the new markup
- * @returns {string} HTML elements, including attributes, tags in one string.
+ * @returns {string} HTML elements, including attributes, tags.
  */
 function Markup(array, tag, className, target) {
     this.array = array;
@@ -13,16 +13,15 @@ function Markup(array, tag, className, target) {
     this.arrayWithMarkup = [];
     this.className = className;
     this.target = document.querySelector(target);
-    this.addMarkup = function () {
+    this.createMarkup = function () {
         this.arrayWithMarkup = this.array.map((element) => {
-            let tag = document.createElement(this.tag);
-            tag.textContent = element;
-            tag.classList.add(this.className);
-            return tag.outerHTML;
+            const liElement = document.createElement(this.tag);
+            liElement.textContent = element;
+            liElement.classList.add(this.className);
+            return liElement;
         });
-        return this.arrayWithMarkup.join("");
     };
 }
-
-const markupForIngredients = new Markup(ingredients, "li", "item", "#ingredients");
-markupForIngredients.target.insertAdjacentHTML("afterbegin", markupForIngredients.addMarkup());
+const vegetablesMarkup = new Markup(ingredients, "li", "item", "#ingredients");
+vegetablesMarkup.createMarkup();
+vegetablesMarkup.target.append(...vegetablesMarkup.arrayWithMarkup);

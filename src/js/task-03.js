@@ -21,14 +21,12 @@ const gallery = {
      * @returns {string} HTML elements, including attributes, tags in one string.
      */
     addImages(array) {
-        let stringWithMarkup;
         const arrayWithMarkUp = array
             .map((element) => {
                 return `<li class="gallery-item"><img src="${element.url}" alt ="${element.alt}"></img></li>`;
             })
             .join("");
-        stringWithMarkup = this.targetElement.insertAdjacentHTML("afterbegin", arrayWithMarkUp);
-        return stringWithMarkup;
+        return this.targetElement.insertAdjacentHTML("afterbegin", arrayWithMarkUp);
     },
 };
 gallery.addImages(images);

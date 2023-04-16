@@ -6,7 +6,7 @@ const numberOfElements = {
      * @param {event} event
      */
     countDataLength(event) {
-        event.target.value.length === this.dataLength
+        event.target.value.trim().length === this.dataLength
             ? this.targetElement.classList.replace("invalid", "valid")
             : this.targetElement.classList.add("invalid");
     },

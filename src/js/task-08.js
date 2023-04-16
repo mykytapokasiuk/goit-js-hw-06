@@ -19,20 +19,20 @@ const form = {
         console.log(userInfo);
     },
     /**
-     * Checks, if all the form fields was filled, fires logUserInfo method, clears all form fields
+     * Checks, if all the form fields was filled in, fires logUserInfo method, clears all form fields
      * @param {event} event
      */
-    onSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
         const {
             elements: { email, password },
         } = event.currentTarget;
         if (email.value === "" || password.value === "") {
-            alert("Please, fill all form fields!");
+            alert("Please, fill in all the form fields!");
         } else if (email.value !== "" && password.value !== "") {
             this.logUserInfo();
             event.currentTarget.reset();
         } else "";
     },
 };
-form.formElement.addEventListener("submit", form.onSubmit.bind(form));
+form.formElement.addEventListener("submit", form.handleSubmit.bind(form));
