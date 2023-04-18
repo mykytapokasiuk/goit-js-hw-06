@@ -1,17 +1,14 @@
-const numberOfElements = {
+const refs = {
     dataLength: ~~document.querySelector("input").getAttribute("data-length"),
     targetElement: document.querySelector("input"),
-    /**
-     * Checks if right number of symbols have been entered
-     * @param {event} event
-     */
-    countDataLength(event) {
-        event.target.value.trim().length === this.dataLength
-            ? this.targetElement.classList.replace("invalid", "valid")
-            : this.targetElement.classList.add("invalid");
-    },
 };
-numberOfElements.targetElement.addEventListener(
-    "blur",
-    numberOfElements.countDataLength.bind(numberOfElements)
-);
+/**
+ * Checks if right number of symbols have been entered, removes all white spaces
+ * @param {event} event
+ */
+const countDataLength = (event) => {
+    event.target.value.trim().split(" ").join("").length === refs.dataLength
+        ? (refs.targetElement.className = "valid")
+        : (refs.targetElement.className = "invalid");
+};
+refs.targetElement.addEventListener("blur", countDataLength);

@@ -1,12 +1,13 @@
-const text = {
+const refs = {
     fontsizecontrol: document.getElementById("font-size-control"),
-    target: document.getElementById("text"),
-    /**
-     * Changes size of text
-     * @param {event} event
-     */
-    changeFontSize(event) {
-        this.target.style.fontSize = `${event.target.value}px`;
-    },
+    targetElement: document.getElementById("text"),
 };
-text.fontsizecontrol.addEventListener("input", text.changeFontSize.bind(text));
+refs.fontsizecontrol.setAttribute("value", "0");
+/**
+ * Changes size of text
+ * @param {event} event
+ */
+const changeFontSize = (event) => {
+    refs.targetElement.style.fontSize = `${event.target.value}px`;
+};
+refs.fontsizecontrol.addEventListener("input", changeFontSize);

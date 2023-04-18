@@ -1,20 +1,15 @@
-/**
- * ! Let`s go;)
- */
-const categories = {
-    numberOfCategories: document.querySelectorAll(".item").length,
+const refs = {
     listOfLiItems: document.querySelectorAll(".item"),
-    listOfUlItems: document.querySelectorAll(".item > ul"),
-    /**
-     * Outputs number of categories, name and number each of category to the console
-     */
-    logCategoryData() {
-        console.log(`Number of categories: ${this.numberOfCategories}`);
-        this.listOfLiItems.forEach((element, i) => {
-            console.log(
-                `Category: ${element.firstElementChild.textContent}\nElements: ${this.listOfUlItems[i].children.length}`
-            );
-        });
-    },
 };
-categories.logCategoryData();
+/**
+ * Outputs number of categories, name and number each of category to the console
+ */
+const logCategoryData = () => {
+    console.log(`Number of categories: ${refs.listOfLiItems.length}`);
+    refs.listOfLiItems.forEach((element) => {
+        console.log(
+            `Category: ${element.firstElementChild.textContent}\nElements: ${element.lastElementChild.children.length}`
+        );
+    });
+};
+logCategoryData();

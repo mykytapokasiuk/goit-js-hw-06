@@ -13,20 +13,19 @@ const images = [
     },
 ];
 
-const gallery = {
+const refs = {
     targetElement: document.querySelector(".gallery"),
-    /**
-     * Creates markup with images
-     * @param {object} array Array of objects
-     * @returns {string} HTML elements, including attributes, tags in one string.
-     */
-    addImages(array) {
-        const arrayWithMarkUp = array
-            .map((element) => {
-                return `<li class="gallery-item"><img src="${element.url}" alt ="${element.alt}"></img></li>`;
-            })
-            .join("");
-        return this.targetElement.insertAdjacentHTML("afterbegin", arrayWithMarkUp);
-    },
 };
-gallery.addImages(images);
+/**
+ * Creates markup with images
+ * @returns {string} HTML elements, including attributes, tags in one string.
+ */
+const addImages = () => {
+    const arrayWithMarkUp = images
+        .map((element) => {
+            return `<li class="gallery-item"><img src="${element.url}" alt ="${element.alt}"></img></li>`;
+        })
+        .join("");
+    return refs.targetElement.insertAdjacentHTML("afterbegin", arrayWithMarkUp);
+};
+addImages();

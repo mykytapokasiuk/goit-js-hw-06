@@ -1,22 +1,13 @@
-const textOutput = {
+const refs = {
     nameInput: document.getElementById("name-input"),
     nameOutput: document.getElementById("name-output"),
-    /**
-     * Changes output text by input text
-     * @param {event} event
-     */
-    changeOutputText(event) {
-        this.nameOutput.textContent = event.target.value;
-    },
-    /**
-     * Returns the default text
-     * @param {event} event
-     */
-    returnOutputText(event) {
-        if (event.target.value.trim() === "") {
-            this.nameOutput.textContent = "Anonymous";
-        }
-    },
 };
-textOutput.nameInput.addEventListener("input", textOutput.changeOutputText.bind(textOutput));
-textOutput.nameInput.addEventListener("input", textOutput.returnOutputText.bind(textOutput));
+/**
+ * Changes output text by input text
+ * @param {event} event
+ */
+const changeOutputText = (event) => {
+    refs.nameOutput.textContent =
+        refs.nameInput.value === "" ? "Anonymous" : event.target.value.trim();
+};
+refs.nameInput.addEventListener("input", changeOutputText);

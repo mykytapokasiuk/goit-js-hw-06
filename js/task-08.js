@@ -1,38 +1,24 @@
-const form = {
+const refs = {
     formElement: document.querySelector(".login-form"),
-    /**
-     * Creates object
-     * @param {string} email
-     * @param {string} password
-     */
-    UserInfo: function (email, password) {
-        (this.email = email), (this.password = password);
-    },
-    /**
-     * Logs new object to the console created by UserInfo(constructor)
-     */
-    logUserInfo() {
-        const {
-            elements: { email, password },
-        } = this.formElement;
-        const userInfo = new this.UserInfo(email.value, password.value);
-        console.log(userInfo);
-    },
-    /**
-     * Checks, if all the form fields was filled in, fires logUserInfo method, clears all form fields
-     * @param {event} event
-     */
-    handleSubmit(event) {
-        event.preventDefault();
-        const {
-            elements: { email, password },
-        } = event.currentTarget;
-        if (email.value === "" || password.value === "") {
-            alert("Please, fill in all the form fields!");
-        } else if (email.value !== "" && password.value !== "") {
-            this.logUserInfo();
-            event.currentTarget.reset();
-        } else "";
-    },
 };
-form.formElement.addEventListener("submit", form.handleSubmit.bind(form));
+/**
+ * Checks, if all the form fields was filled in, clears all form fields
+ * @param {event} event
+ */
+const handleSubmit = (event) => {
+    event.preventDefault();
+    const {
+        elements: { email, password },
+    } = event.currentTarget;
+    if (email.value === "" || password.value === "") {
+        alert("Please, fill in all the form fields!");
+        return;
+    }
+    const userInfo = {
+        email: email.value,
+        password: password.value,
+    };
+    console.log(userInfo);
+    event.currentTarget.reset();
+};
+refs.formElement.addEventListener("submit", handleSubmit);
