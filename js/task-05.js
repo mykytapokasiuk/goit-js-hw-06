@@ -8,6 +8,6 @@ const refs = {
  */
 const changeOutputText = (event) => {
     refs.nameOutput.textContent =
-        refs.nameInput.value === "" ? "Anonymous" : event.target.value.trim();
+        refs.nameInput.value.trim() === "" ? "Anonymous" : event.target.value.trim();
 };
 refs.nameInput.addEventListener("input", changeOutputText);

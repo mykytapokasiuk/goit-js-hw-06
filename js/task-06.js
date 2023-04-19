@@ -7,7 +7,7 @@ const refs = {
  * @param {event} event
  */
 const countDataLength = (event) => {
-    event.target.value.trim().split(" ").join("").length === refs.dataLength
+    event.target.value.trim().length === refs.dataLength
         ? (refs.targetElement.className = "valid")
         : (refs.targetElement.className = "invalid");
 };

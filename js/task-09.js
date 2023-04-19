@@ -16,8 +16,9 @@ const getRandomHexColor = () => {
  * Changes background color, outputs color value to the span element
  */
 const changeBackgroundColor = () => {
-    refs.bodyElement.style.backgroundColor = getRandomHexColor();
-    refs.colorValueOutputElement.textContent = refs.bodyElement.style.backgroundColor;
+    const randomColor = getRandomHexColor();
+    refs.bodyElement.style.backgroundColor = randomColor;
+    refs.colorValueOutputElement.textContent = randomColor;
 };
 
 refs.changeColorBtn.addEventListener("click", changeBackgroundColor);
